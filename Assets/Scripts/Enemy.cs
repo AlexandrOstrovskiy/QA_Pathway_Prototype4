@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour
     void LateUpdate()
     {
         FollowPlayer();
+        DestroyFallenEnemy();
 
     }
 
@@ -30,4 +31,11 @@ public class Enemy : MonoBehaviour
         Vector3 lookDirection = (player.transform.position - transform.position).normalized;
         enemyRigidbody.AddForce(lookDirection * speed * Time.deltaTime);
     }
+
+    void DestroyFallenEnemy()
+    {
+        if (transform.position.y < -9.0f)
+            Destroy(gameObject);
+    }
+        
 }

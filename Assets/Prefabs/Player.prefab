@@ -123,4 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1407f019d3943868ae1bba7f3f2a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpIndicator: {fileID: 5328866286430206721, guid: d0cadc07f66514951b2f34767bd5a0eb,
+    type: 3}
   playerSpeed: 200
+  hasPowerUp: 0
+  powerUpDamageStrength: 15

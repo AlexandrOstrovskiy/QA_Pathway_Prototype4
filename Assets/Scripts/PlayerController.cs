@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRigidbody;
     private GameObject focalPoint;
 
+    //public bool isDead = false;
+
     public GameObject powerUpIndicator;
 
     [SerializeField]
@@ -30,7 +32,14 @@ public class PlayerController : MonoBehaviour
     {
         powerUpIndicator.transform.position = transform.position + new Vector3(0, 2.0f, 0);
         MovePlayerForward();
+        //AreUDead();
     }
+
+    //void AreUDead()
+    //{
+    //    if (transform.position.y < -5)
+    //        isDead = true;
+    //}
 
     void MovePlayerForward()
     {

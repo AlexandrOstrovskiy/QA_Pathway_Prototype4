@@ -6,6 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public GameObject powerUpPrefab;
+    public GameObject player;
 
     private int enemyCount;
     //private int powerUpCount;
@@ -19,6 +20,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
         //InvokeRepeating("SpawnEnemy", 2.0f, 5.0f);
     }
 
@@ -26,11 +28,20 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         enemyCount = FindObjectsOfType<Enemy>().Length;
+        if (player.transform.position.y < -5)
+            RessurectPlayer();
         if (enemyCount == 0)
         {
             SpawnEnemyWave(enemyWaveCount++);
             SpawnPowerUp();
         }
+    }
+
+    void RessurectPlayer()
+    {
+        //new WaitForSeconds(8);
+        player.transform.position = Vector3.zero;
+        //enemyWaveCount = 1;
     }
 
     void SpawnEnemyWave(int enemiesToSpawn)
